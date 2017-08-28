@@ -3,7 +3,7 @@
 // The only portions you need to work on are the helper functions (below)
 
 (function() {
-
+ 
   window.Board = Backbone.Model.extend({
 
     initialize: function (params) {
@@ -79,12 +79,29 @@
     //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+      
+      var counter = 0;
+      //♕
+      var kids = this.get(rowIndex)   
+      for (var i=0 ; i < kids.length; i++){
+        if (kids[i] === 1){
+          counter++;
+        }
+      }
+      return counter > 1 ? true : false;
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
+      var found=false;
+      var arr = this.rows();
+      for(var i=0; i <  arr.length  ;i++){
+
+        if(this.hasRowConflictAt(i)){  
+          found=true;
+        }
+      }      
+      return found; 
     },
 
 
@@ -94,6 +111,11 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
+      // var kids = 
+
+
+
+
       return false; // fixme
     },
 
