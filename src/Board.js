@@ -79,7 +79,6 @@
     //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
-      
       var counter = 0;
       //♕
       var kids = this.get(rowIndex)   
@@ -88,7 +87,7 @@
           counter++;
         }
       }
-      return counter > 1 ? true : false;
+      return counter > 1;
     },
 
     // test if any rows on this board contain conflicts
@@ -96,7 +95,6 @@
       var found=false;
       var arr = this.rows();
       for(var i=0; i <  arr.length  ;i++){
-
         if(this.hasRowConflictAt(i)){  
           found=true;
         }
@@ -116,7 +114,7 @@
       for (var i = 0; i < rows.length; i++) {
         count = count + rows[i][colIndex];
       }
-      return count > 1 ? true : false; 
+      return count > 1; 
     },
 
     // test if any columns on this board contain conflicts
